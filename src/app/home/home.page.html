@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <div
+    style="margin: 0.5em;  border-color: var(--ion-color-primary); border-radius: 5px; border-style: solid; border-width: 2px;">
+
+
+
+    <div style="padding: 0.5em 0 0 2.6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
+    flex-direction: row;">
+      <div>resistencia</div>
+      <ion-badge style="width: 40%;margin-right: 3.5em;">{{resistencia}} <span
+          style="position: absolute; right: 0.5em;">ohm</span></ion-badge>
+    </div>
+
+    <ion-segment value="10"  (ionChange)="onChangeSegnment($event)">
+      <ion-segment-button value="10">
+        <ion-label style="text-transform: none ;">10 ohm</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="1000">
+        <ion-label style="text-transform: none ;">1K ohm</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="1000000">
+        <ion-label style="text-transform: none ;">1M ohm</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-range style="padding: 0 0.5em 0em 0.5em;" [min]="this.minp" [max]="this.maxp" step="1" snaps="true"
+      ticks="false" color="secondary" (ionChange)="onChangeRange($event)" [(ngModel)]="this.slideValue">
+      <ion-button slot="start" style="width: 2em; margin-inline: 0em 0.8em;" fill="clear" (click)="incrementRange(-1)">
+        <ion-icon name="remove-circle-outline" style="position: absolute;" size="large"></ion-icon>
+      </ion-button>
+      <ion-button slot="end" style="width: 2em; margin-inline: 0.7em 0em;" fill="clear" (click)="incrementRange(1)">
+        <ion-icon name="add-circle-outline" style="position: absolute;" size="large"></ion-icon>
+      </ion-button>
+    </ion-range>
+  </div>
+
+
+
+
+</ion-content>
